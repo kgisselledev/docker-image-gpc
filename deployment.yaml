@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-app-docker-gpc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi-app-docker-gpc
+  template:
+    metadata:
+      labels:
+        app: mi-app-docker-gpc
+    spec:
+      containers:
+        - name: mi-app-docker-gpc
+          image: gcr.io/mi-app-docker-gpc:1.0
+          ports:
+            - containerPort: 8080
